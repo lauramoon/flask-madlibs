@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Madlibs {% endblock %}
+
+{% block content %}
+    <h1>Pick Your Answers</h1>
+    <h2>Story: {{title}}</h2>
+    <form id="answer-form" class="madlibs-form" action="/story">
+        <input type="hidden" id="{{title}}" name="title" value="{{title}}">
+        {% for prompt in prompts %}
+        <div class='prompt-div'>
+            <label for="{{prompt}}">{{prompt}}:</label>
+            <input class="form-element" id="{{prompt}}" type="text" name="{{prompt}}" autocomplete="off">
+        </div>
+        {% endfor %}
+        <button class="form-element button">Read Story</button>
+    </form>
+    <script src="/static/params.js"></script>
+{% endblock %}

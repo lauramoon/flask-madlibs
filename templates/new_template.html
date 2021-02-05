@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Madlibs {% endblock %}
+
+{% block content %}
+    <h1>Madlibs Template</h1>
+    <h2>Create your own template</h2>
+    <p>
+        Give your story a title in the title field, and 
+        type your story template in the text area. Use curly braces - { and } - to 
+        mark where the user fills in a word. Put the description of the word 
+        between the braces. For example:
+    </p>
+    <p>
+        I like {adjective_1} and {adjective_2} {noun}.
+    </p>
+    <form action="" id="new-template-form" class="madlibs-form">
+        <div>
+            <label for="title">Title:</label>
+            <input class="form-element" id="title" type="text" name="title">
+        </div>
+        <div>
+            <textarea name="new-template" id="new-template" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button class="form-element button">Create</button>
+        </div>
+        <div>
+            <button type=button id=delete-local-templates class="form-element button">
+                Delete My Templates
+            </button>
+        </div>
+        
+    </form>
+    <script src="/static/new_template.js"></script>
+{% endblock %}

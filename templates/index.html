@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madlibs</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} Madlibs {% endblock %}
+
+{% block content %}
     <h1>Madlibs</h1>
-    <form action="/story">
-        {% for prompt in prompts %}
+    <h2>Select a Story</h2>
+    <form action="/form" id="pick-story-form" class="madlibs-form">
         <div>
-            <label for="{{prompt}}">{{prompt}}:</label>
-            <input id="{{prompt}}" type="text" name="{{prompt}}">
+            <select class="form-element" name="title" id="title-selection">
+                <option disabled selected value="Pick a Story">Pick one!</option>
+                {% for title in titles %}
+                <option value="{{title}}">{{title}}</option>
+                {% endfor %}
+            </select>
         </div>
-        {% endfor %}
-        <button>Submit</button>
+
+        <button class="form-element button">Go!</button>
     </form>
-</body>
-</html>
+    <script src="/static/get_titles.js"></script>
+{% endblock %}
